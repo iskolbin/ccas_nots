@@ -1,9 +1,14 @@
 extends layout.pug
 
+block pageVars
+	- var page = "research.html"
+	- var title = "Исследования"
+
 block append head
 	title Исследования
 
 block content
+	h2 Гранты
 	+grantsList(
 		{ id: "РНФ 14-11-0782",
 			title: "Развитие методов оптимизации, ориентированных на широкий класс прикладных задач структурного материаловедения",

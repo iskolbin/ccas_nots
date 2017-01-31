@@ -1,0 +1,15 @@
+mixin addNavPage(str,title)
+	li
+		if page == str
+			a(href=`${str}` class="active") #{title}
+		else
+			a(href=`${str}`) #{title}
+
+#navigation-wrapper
+	ul#navigation
+		+addNavPage("index.html", "Главная")
+		+addNavPage("about.html", "О НОЦ")
+		+addNavPage("education.html", "Образование")
+		+addNavPage("research.html", "Исследования")
+		+addNavPage("events.html", "Мероприятия")
+

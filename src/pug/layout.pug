@@ -3,6 +3,8 @@
 - var email = 'matmodel2013@gmail.com'
 - var address = 'г. Москва, ул. Вавилова, дом 40, 3-й этаж, конференц-зал'
 
+block pageVars
+
 mixin sendEmail(text,topic)
 	#send-email
 		a(href=`mailto:matmodel2013@gmail.com?subject=${topic}`) #{text}
@@ -14,8 +16,8 @@ mixin seminarList(...seminars)
 				li #{s.date}
 
 mixin grantsList(...grants)
-	#grants-list
-		ol
+	#grants-list-wrapper
+		ol#grants-list
 			each g in grants
 				li #{g.id} <em>«#{g.title}»</em> (#{g.years[0]}-#{g.years[1]})
 				p
@@ -24,7 +26,11 @@ mixin grantsList(...grants)
 doctype html
 html(lang="ru-RU")
 	head
+		style(type="text/css")
+			include ../css/default.css
 		block head
+		title #{title}
 	body
 		include navigation.pug
-		block content
+		#content
+			block content
